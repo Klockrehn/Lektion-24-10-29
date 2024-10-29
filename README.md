@@ -152,3 +152,97 @@ const cities = ["Stockholm", "Göteborg", "Malmö", "Lund"];
 cities.unshift("Linköping"); 
 console.log(cities); 
 ```
+
+#### shift() => The removed element
+
+Is used to remove an element from the beginning of the array and reurns that removed element. 
+
+```js 
+const cities = ["Stockholm", "Göteborg", "Malmö", "Lund"];
+
+cities.shift();
+console.log(cities); // Removes Stockholm
+```
+
+#### includes(item) => Boolean (True/False) 
+
+Is used to check if an item/element exists in an array or not. The parameter is the item/element we are looking for and the return value either true or false. 
+
+```js 
+const numbers = [2, 4, 6 , 8, 10];
+
+if (numbers.includes(6)) {
+    console.log("The number 6 exists in the array");
+
+}   else {
+
+    console.log("There is no number 6 in the array");
+}
+
+const number8Exist = numbers.include(8);
+if (number8Exist) {
+    // Do something if number 8 exists
+}
+```
+
+If you have more complex conditions in your if checks, always try to store them in variables with readable names instead. It makes the code more readable and maintainable. 
+
+#### indexOf(item) => the index position OR -1 if it doesn't exist.
+
+Is used to find an index position of a specific item/element inside tthe array. If it exists, the index is returned as a number, and if it doesn't, negative one `-1` is returned. Keep that in mind when using it in if checks. 
+
+```js
+const cities = ["Stockholm", "Göteborg", "Malmö", "Lund"];
+
+const indexOfMalmö = cities.indexOf("Malmö"); 
+console.log(cities);
+console.log(indexOfMalmo); 
+``` 
+
+ If we try to get an index that doesn't exist, will get back `-1`. 
+
+ ```js
+ const cities = ["Stockholm", "Göteborg", "Malmö", "Lund"];
+
+const indexOfSkurup = cities.indexOf("Skurup"); 
+console.log(indexOfMalmo); // -1
+```
+
+Remember, if you use this in if check, check for `-1` if you want to do something it the item doesn't exist in the array. 
+
+#### join() => A string including all the elements
+
+Is used to convert a array of elements to a string containing those elements. It doesn't matter if it's numbers, string or something else, the method always tries to convert everything to a long string. It also takes a parameter that is a character that will be used to seperate the elements with. Can be an empty space, dash, underscore or any other character. The seperator is optional, hence the question matk in the syntax. 
+
+```js 
+const cities = ["Stockholm", "Göteborg", "Malmö", "Lund"];
+
+const citiesAsstring = cities.join();
+```
+
+If we don't specify a seperator, per default every element will be seperated with a comma. 
+
+```js
+console.log(citiesAsString); // Stockholm,Göteborg,Malmö,Lund
+``` 
+
+```js 
+const cities = ["Stockholm", "Göteborg", "Malmö", "Lund"];
+
+const citiesAsString = "StockholmGöteborgMalmöLund"; 
+
+"Stockholm-Göteborg-Malmö-Lund"
+// Above, just an example. Hard to read, not good.
+```
+
+In short, `join()` converts an array to an string with and seperates every element with a separator, that is defined inside `join()` - `join( / )` gives an / beetwen the cities, for example. 
+
+#### splice(start, deleteCount, item1?, item2?, Item?...) => 
+
+The splice method lets us modify the content of an array on any given index position. 
+
+It takes several parameters. The first one is the index on which we would like to start our modification. 
+
+The next one is the delete count, how many elements do we want to delete? If we don't want to delete anything we just assign 0 to this parameter. If we delete something it will `start` deleting from the start parameter, in other words the index position we assign to `start`. 
+
+The third one (or more) is the nwe items/elements we whould like to add to the array. 
